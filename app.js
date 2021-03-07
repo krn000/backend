@@ -92,7 +92,7 @@ app.get('/events', (req,res) => {
     let events = [
       {
         "_id": "1",
-        "name": "Auto Expo",
+        "name": "Special Expo",
         "description": "lorem ipsum",
         "date": "2012-04-23T18:25:43.511Z"
       },
