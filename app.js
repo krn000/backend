@@ -70,24 +70,7 @@ app.post('/events', (req, res) => {
   })
 })
 
-app.get('/special', (req, res) => {
-  Event.find({})
-    .then((special) => { res.send(special) })
-    .catch((err) => console.log(err))
-})
 
-app.post('/special', (req, res) => {
-  let eventData = req.body
-  let event = new Event(eventData)
-  event.save((err, postEvent) => {
-    if (err) {
-      console.log(err)
-    } else {
-      postEvent = event
-      res.send(postEvent)
-    }
-  })
-})
 
 
 function verifyToken(req, res, next) {
@@ -149,47 +132,47 @@ function verifyToken(req, res, next) {
 //   res.json(events)
 // })
 
-// app.get('/special', verifyToken, (req, res) => {
-//   let events = [
-//     {
-//       "_id": "1",
-//       "name": "Special Expo",
-//       "description": "lorem ipsum",
-//       "date": "2012-04-23T18:25:43.511Z"
-//     },
-//     {
-//       "_id": "2",
-//       "name": "Auto Expo",
-//       "description": "lorem ipsum",
-//       "date": "2012-04-23T18:25:43.511Z"
-//     },
-//     {
-//       "_id": "3",
-//       "name": "Auto Expo",
-//       "description": "lorem ipsum",
-//       "date": "2012-04-23T18:25:43.511Z"
-//     },
-//     {
-//       "_id": "4",
-//       "name": "Auto Expo",
-//       "description": "lorem ipsum",
-//       "date": "2012-04-23T18:25:43.511Z"
-//     },
-//     {
-//       "_id": "5",
-//       "name": "Auto Expo",
-//       "description": "lorem ipsum",
-//       "date": "2012-04-23T18:25:43.511Z"
-//     },
-//     {
-//       "_id": "6",
-//       "name": "Auto Expo",
-//       "description": "lorem ipsum",
-//       "date": "2012-04-23T18:25:43.511Z"
-//     }
-//   ]
-//   res.json(events)
-// })
+app.get('/special', verifyToken, (req, res) => {
+  let events = [
+    {
+      "_id": "1",
+      "name": "Special Expo",
+      "description": "lorem ipsum",
+      "date": "2012-04-23T18:25:43.511Z"
+    },
+    {
+      "_id": "2",
+      "name": "Auto Expo",
+      "description": "lorem ipsum",
+      "date": "2012-04-23T18:25:43.511Z"
+    },
+    {
+      "_id": "3",
+      "name": "Auto Expo",
+      "description": "lorem ipsum",
+      "date": "2012-04-23T18:25:43.511Z"
+    },
+    {
+      "_id": "4",
+      "name": "Auto Expo",
+      "description": "lorem ipsum",
+      "date": "2012-04-23T18:25:43.511Z"
+    },
+    {
+      "_id": "5",
+      "name": "Auto Expo",
+      "description": "lorem ipsum",
+      "date": "2012-04-23T18:25:43.511Z"
+    },
+    {
+      "_id": "6",
+      "name": "Auto Expo",
+      "description": "lorem ipsum",
+      "date": "2012-04-23T18:25:43.511Z"
+    }
+  ]
+  res.json(events)
+})
 
 
 
