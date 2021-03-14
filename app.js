@@ -2,15 +2,15 @@ const express = require('express');
 
 const app = express();
 app.use(express.json());
+const cors = require('cors')
+
+app.use(cors())
 
 
 const Campaign = require('../backend/database/models/campaign')
 
-app.use(cors());
 
-
-
-app.get('/edit-camp/:id', (req, res) => {
+app.get('/campaign/:id', (req, res) => {
   Campaign.find({_id : req.params.id})
     .then((events) => { res.send(events) })
     .catch((err) => console.log(err))
