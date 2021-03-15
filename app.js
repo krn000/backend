@@ -35,8 +35,8 @@ app.post('/campaign', (req, res) => {
   })
 })
 
-app.patch('/campaign/:id', (req, res) => {
-  Campaign.findOneAndUpdate({ '_id': req.params.id }, { $set: req.body })
+app.put('/campaign/:id', (req, res) => {
+  Campaign.findByIdAndUpdate({ '_id': req.params.id }, { $set: req.body })
     .then((lists) => { res.send(lists) })
     .catch((error) => { console.log(error) })
 });
@@ -46,7 +46,6 @@ app.delete('/campaign/:id', (req, res) => {
   Campaign.findByIdAndDelete(req.params.id)
         .then((list) => { res.send(list) })
         .catch((error) => { console.log(error) })
-
 });
 
 
